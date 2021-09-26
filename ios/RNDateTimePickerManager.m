@@ -143,4 +143,16 @@ RCT_CUSTOM_VIEW_PROPERTY(disabled, BOOL, RNDateTimePicker)
   }
 }
 
+RCT_CUSTOM_VIEW_PROPERTY(doneText, NSString, RNDateTimePicker)
+{
+  if (json) {
+      UIBarButtonItem *done=[[UIBarButtonItem alloc]initWithTitle: [RCTConvert NSString: json] style:UIBarButtonItemStyleDone target:self action:@selector(done:)];
+      UIToolbar *toolBar=[[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, self.frame.size.width, 30)];
+      NSArray* toolBarItems=[[NSArray alloc]initWithObjects:done, nil];
+      [toolBar setItems:toolBarItems];
+      
+      view.inputAccessoryView = toolbar;
+  }
+}
+
 @end

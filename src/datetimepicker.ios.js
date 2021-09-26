@@ -57,6 +57,7 @@ export default function Picker({
   disabled = false,
   ...otherProps
 }: IOSNativeProps) {
+  console.log('@@@@123123')
   const [heightStyle, setHeightStyle] = useState(undefined);
   const _picker: NativeRef = React.useRef();
   const display = getDisplaySafe(otherProps.display);
@@ -127,6 +128,7 @@ export default function Picker({
       onResponderTerminationRequest={() => false}
       displayIOS={display}
       disabled={disabled === true}
+      doneText="Done"
     />
   );
 }
